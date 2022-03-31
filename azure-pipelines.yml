@@ -2,12 +2,10 @@
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
-pool:
-  vmImage: Ubuntu 16.04
+pool: myPool
 steps:
-  - task: InstallMATLAB@0
-    inputs:
-      release: R2021a
+  - powershell: Write-Host '##vso[task.prependpath]C:\Program Files\MATLAB\R2021b\bin'  # Windows agent
+# - bash: echo '##vso[task.prependpath]/usr/local/MATLAB/R2021b/bin'  # Linux agent
   - task: RunMATLABCommand@0
     inputs:
       command: myScript
