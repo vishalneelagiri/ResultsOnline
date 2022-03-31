@@ -2,13 +2,14 @@
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
-pool: myPool
+pool:
+  vmImage: Ubuntu 16.04
 steps:
-  - task: RunMATLABTests@0
+  - task: InstallMATLAB@0
     inputs:
-      codeCoverageCobertura: 'code-coverage/coverage.xml'
-      testResultsPDF: 'test-results/results.pdf'
-      sourceFolder: 'Tests'
-      testResultsJUnit: 'test-results/results.xml'
+      release: R2021a
+  - task: RunMATLABCommand@0
+    inputs:
+      command: myScript
 
 
