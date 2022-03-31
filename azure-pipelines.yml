@@ -7,7 +7,7 @@ pool:
 steps:
   - task: InstallMATLAB@0
     inputs:
-      release: R2021a
+      release: R2021b
   - task: RunMATLABCommand@0
     inputs:
       command: myScript
